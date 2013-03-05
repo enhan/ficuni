@@ -26,7 +26,11 @@ function SetupCtrl($scope, $http) {
         ).error(function (data, status) {
                 window.alert(status);
             });
+
+
     }
+
+
 
 
 

@@ -14,8 +14,8 @@ import play.api.Play.current
  */
 case class InternshipType(id:Long, title:String, description:String)
 object InternshipType{
-  def all() : List[Map[String, String]] = DB.withConnection {implicit c => SQL("select * from internship_type").as(internshipTypeJson *)}
-
+  //def all() : List[Map[String, String]] = DB.withConnection {implicit c => SQL("select * from internship_type").as(internshipTypeJson *)}
+  def all() : List[InternshipType] = DB.withConnection {implicit c => SQL("select * from internship_type").as(internshipType *)}
 
   def create(title:String, description:String){
     DB.withConnection { implicit c => SQL("insert into internship_type (title, description) values ({title},{description})").
@@ -29,6 +29,14 @@ object InternshipType{
     get[String]("title")~
     get[String]("description") map{
       case id~title~description => Map("id" -> id.toString, "title" -> title, "description"->description)
+    }
+  }
+
+  val internshipType = {
+    get[Long]("id") ~
+      get[String]("title")~
+      get[String]("description") map{
+      case id~title~description => InternshipType(id, title, description)
     }
   }
 
