@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="span2">
+        <ul class="nav nav-list">
+            <li class="nav-header">Setup</li>
+            <li class="active"><a href="#/setup">Internships</a></li>
+            <li><a ng-href="#/cursus">Cursus</a></li>
+        </ul>
+    </div>
+    <div class="span10"><h1>Setup</h1>
+
+        <h2>Internship types</h2>
+
+
+        <p>Here is a list of the possible internships available and mandatory in cursus</p>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="type in internships">
+                    <td>{{type.title}}</td><td>{{type.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Create internship type</h3>
+        <form class="span8 offset1" ng-submit="addInternship()">
+            <label>Name</label>
+            <input type="text" class="span5" ng-model="newInternship.title"/>
+            <label>Description</label>
+            <textarea rows="3" class="span5" ng-model="newInternship.description"></textarea><br>
+            <button type="submit" class="btn btn-primary">Add internship</button>
+        </form>
+
+        <h2 ng-href="cursus">Cursus</h2>
+        <h3>Cursus name</h3>
+        <p>Description</p>
+        <h4>Internships</h4>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Onco1</td><td>Blabla</td>
+            </tr>
+            <tr>
+                <td>Onco1</td><td>Blabla</td>
+            </tr>
+            <tr>
+                <td>Onco1</td><td>Blabla</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
